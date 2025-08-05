@@ -1,8 +1,33 @@
 # Asterisk/FreePBX
 # Development
+## Python
+### Create virtual working environment
+- In ubuntu:
+```
+python -m venv ttt --clear
+source ttt/bin/activate
+python3 -m pip install --upgrade pip
+pip list
+pip install torch
+```
+- On windows:
+```
+mkdir d:/test
+cd test
+python -m venv test 
+cd test
+Scripts\activate.bat
+pip list
+```
+### How to download current python packages
+```
+pip freeze > requirements.txt
+pip download -r requirements.txt
+```
 # Tools
 ## npm is not working in Windows after installed nodejs
-![alt text](npm-not-working-in-windows.png)
+<img src="images/npm-not-working-in-windows.png" alt="drawing" width="800px"/>
+
 In powershell, I entered this:
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
