@@ -1,4 +1,12 @@
 # Asterisk/FreePBX
+# Development
+# Tools
+## npm is not working in Windows after installed nodejs
+![alt text](npm-not-working-in-windows.png)
+In powershell, I entered this:
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 # Linux
 ## When Ubuntu VPS
 ### How to access VPS by web http
