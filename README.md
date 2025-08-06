@@ -149,3 +149,23 @@ systemctl restart ufw
 ssh -p 2222 root@65.21.136.38
 ```
 # Artificial Intelligence
+## Building customized chatbot
+- Download llama and compile
+```
+git clone https://github.com/ggerganov/llama.cpp.git
+cd llama.cpp
+cmake -B build
+cmake --build build --config Release
+```
+- Download model and run server
+```
+mkdir models
+cd models
+wget https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF/resolve/main/mistral-7b-instruct-v0.1.Q5_K_M.gguf
+cd ..
+build/bin/llama-server --model models/mistral-7b-instruct-v0.1.Q5_K_M.gguf --host 65.21.136.38
+```
+- Make chatbot app
+```
+curl http://65.21.136.38:8080/completion   -H "Content-Type: application/json"   -d '{ "prompt": "<|im_start|>system\nYou are an asterisk developer. Your name is Jin Jin.<|im_end|>\n<|im_start|>user\nTell me about you.< im_end|>\n<|im_start|>assistant", "n_predict": 100 }'
+```
