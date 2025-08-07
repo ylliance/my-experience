@@ -169,3 +169,16 @@ build/bin/llama-server --model models/mistral-7b-instruct-v0.1.Q5_K_M.gguf --hos
 ```
 curl http://65.21.136.38:8080/completion   -H "Content-Type: application/json"   -d '{ "prompt": "<|im_start|>system\nYou are an asterisk developer. Your name is Jin Jin.<|im_end|>\n<|im_start|>user\nTell me about you.< im_end|>\n<|im_start|>assistant", "n_predict": 100 }'
 ```
+# News
+## Stack Overflow Survey(2025) - Key news
+- Rust, Gleam, Elixir and Zig are the most admired programming language.
+- PostgreSQL is the most desired and the most admired.
+- Docker is a near-universal one in cloud development.
+- What is 
+  - Miro, Notion in collaborative work management
+- Cargo is the most admired cloud development
+- Phoenix is the most admired web framework.
+- uv is the most admired SO tag.
+- Claude Sonnet is the most admired LLM.
+
+- Why people prefer PostgreSQL?
