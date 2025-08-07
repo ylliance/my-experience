@@ -1,5 +1,6 @@
 # Asterisk/FreePBX
 ## Asterisk failover
+1. Installing pacemaker
 ### Troubleshooting
 #### To see raw cluster configuration
 ```
