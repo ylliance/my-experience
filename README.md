@@ -8,7 +8,7 @@ pcs cluster cib
 ```
 #### Check service aliveness
 ```
-pcs status corosync
+pcs status corosync 
 ```
 #### Check whether cluster communication is happy
 ```
