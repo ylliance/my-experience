@@ -58,7 +58,51 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 <img src="images/image.png" alt="drawing" width="200px"/>
 ```
 # Linux
+## How to use tmux
+- Split the screen: Ctrl+b %(H), "(V)
+- Moving the screen: Ctrl+b arrows
+- Creating a new window: Ctrl+b c
+- Switching between windows: Ctrl+b n, p
+- Detach: Ctrl+b d
+- List tmux sessions: tmux ls
+- Reattach: tmux attach -t 0
 ## CentOS10
+### How to set yum server locally
+Make /mnt/centos_iso directory and mount
+```
+mkdir /mnt/centos_iso
+mount /dev/cdrom /mnt/centos_iso
+```
+(Optional) If you have .iso file
+```
+sudo mount -o loop /path/to/CentOS-10.iso /mnt/centos_iso
+```
+Set yum repository setting
+```
+rm -rf /etc/yum.repos.d/*.repo
+vi /etc/yum.repos.d/centos-local.repo
+```
+Insert following to the file.
+```
+[BaseOS]
+name=CentOS 10 - BaseOS
+baseurl=file:///mnt/centos_iso/BaseOS
+enabled=1
+gpgcheck=0
+
+[AppStream]
+name=CentOS 10 - AppStream
+baseurl=file:///mnt/centos_iso/AppStream
+enabled=1
+gpgcheck=0
+```
+### Access windows shared folder
+```
+yum install cifs-utils
+mkdir -p /mnt/windows_share
+mount -t cifs //192.168.140.217/Asterisk_Failover /mnt/windows_share/ -o username=Administrator
+<Enter Password>
+```
 ### Set history setting
 ```
 [/etc/bashrc]
@@ -105,6 +149,10 @@ After that
 ssh node-2 -- uname -n
 ```
 ## CentOS
+### How to enable ha repository
+```
+sudo dnf config-manager --set-enabled highavailability
+```
 ### Manage firewall using firewalld-cmd
 ```
 firewall-cmd --permanent --add-service=high-availability 
